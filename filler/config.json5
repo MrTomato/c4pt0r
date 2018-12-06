@@ -1,0 +1,45 @@
+{
+  credentials: {
+    "t-mobile-hotspot": {
+      username: "foo",
+      password: "bar"
+    },
+    novotel: {
+      username: "foo",
+      password: "bar"
+    }
+  },
+  hotspots: {
+    ssid: "t-mobile-hotspot",
+    requests: [
+      {
+        url: "https://hotspot.t-mobile.net/wlan/rest/login",
+        fields: [
+          {
+            name: "username",
+            value: "%username%"
+          },
+          {
+            name: "password",
+            value: "%password%"
+          },
+          {
+            name: "accept-agb",
+            value: "checked"
+          }
+        ]
+      },
+      //:POST-REQUEST
+      {
+        url: "https://hotspot.t-mobile.net/wlan/rest/login",
+        fields: [
+          {
+            name: "iamnotevil",
+            value: "checked"
+          }
+        ]
+      }
+      //:POST-REQUEST
+    ]
+  }
+}
